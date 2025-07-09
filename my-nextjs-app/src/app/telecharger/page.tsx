@@ -1,8 +1,8 @@
 "use client";
 import ScrollToTop from "@/components/ScrollToTop";
 import Hero from "@/components/Hero";
-import { useTheme } from "next-themes";  
-import { Sun, Moon } from "lucide-react"; 
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, FileText } from "lucide-react";
@@ -11,22 +11,28 @@ import KommunicateChat from "@/components/KommunicateChat";
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-
 export default function Telecharger() {
+  const { theme, setTheme } = useTheme();
   const [arch, setArch] = useState("linux");
-  const [theme, setTheme] = useState("light");
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
-    
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) setTheme(savedTheme);
   }, []);
 
-  if (!mounted) return null; 
+  if (!mounted) return null;
 
   return (
     <div className={`min-h-screen ${theme === "dark" ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900"}`}>
+      {/* Bouton pour changer le mode */}
+      <div className="fixed top-4 right-4 z-50">
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 shadow"
+        >
+          {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+      </div>
       <main className="text-center py-60 ">
         <h2 className="text-3xl font-bold mt-6">
           choisisser  <span className="text-blue-400">votre</span> DMS
@@ -44,10 +50,10 @@ export default function Telecharger() {
             <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded dark:bg-blue-700">Recommended</button>
           </div>
           <div className="rounded-lg shadow-md p-6 bg-white dark:bg-gray-800">
-            <img src="/vm.png" alt="Virtual Machines" className="mx-auto w-16"  />
+            <img src="/images/system/application.png" alt="Virtual Machines" className="mx-auto w-16"  />
             <h3 className="text-lg font-bold mt-4 text-gray-900 dark:text-white">Installer script</h3>
             <ul className="text-sm mt-2 text-gray-700 dark:text-gray-300">
-            <li>✔ Détection automatique de l’environnement cible</li>
+            <li>✔ Détection automatique de l'environnement cible</li>
             <li>✔ Téléchargement conditionnel des dépendances manquantes</li>
             <li>✔ Configuration silencieuse sans intervention utilisateur</li>
             <li>✔ Journalisation complète pour audit et débogage</li>
@@ -92,7 +98,7 @@ export default function Telecharger() {
                     </p>
                     <div className="flex space-x-4 mt-4">
                     <a
-                      href="/dmsx64/DERVOX_Monitor_Server.exe"
+                      href="/DERVOX_Monitor_Server.exe"
                       download
                       className="inline-flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
                     >
@@ -122,7 +128,7 @@ export default function Telecharger() {
                     <span className="absolute -top-5 bg-blue-600 text-white px-3 py-1 rounded-lg">Bientot</span>
                     <img src="/images/system/windows-11-icon-seeklogo.png" alt="Windows" className="w-24 h-24 my-4" />
                     <h2 className="text-xl font-semibold text-purple-400">Windows 32bits</h2>
-                    <p className="text-gray-400 mt-2">Application de supervision complète pour Windows 32bits, incluant graphiques système, logs d’activité et surveillance à distance.</p>
+                    <p className="text-gray-400 mt-2">Application de supervision complète pour Windows 32bits, incluant graphiques système, logs d'activité et surveillance à distance.</p>
                     <div className="flex space-x-4 mt-4">
                       <Button className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg">
                         <Download size={20} />
@@ -150,7 +156,7 @@ export default function Telecharger() {
                     <p className="text-gray-400 mt-2"> Dervox Monitor Server fonctionne en arrière-plan pour surveiller les processus système, les performances du noyau et la mémoire sur Arch Linux.</p>
                     <div className="flex space-x-4 mt-4">
                     <a
-                      href="/dmsx64/DERVOX_Monitor_Server.exe"
+                      href="/Dervox_Monitor_Server.exe"
                       download
                       className="inline-flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
                     >
@@ -175,7 +181,7 @@ export default function Telecharger() {
                     <p className="text-gray-400 mt-2">Application légère et sécurisée pour Debian, avec tableau de bord web pour visualiser l'état du serveur en temps réel.</p>
                     <div className="flex space-x-4 mt-4">
                     <a
-                      href="/dmsx64/DERVOX_Monitor_Server.exe"
+                      href="/Dervox_Monitor_Server.exe"
                       download
                       className="inline-flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
                     >
@@ -312,7 +318,7 @@ export default function Telecharger() {
                     <p className="text-gray-400 mt-2">Script bash pour Arch Linux incluant installation du noyau Dervox et services d'analyse système.</p>
                     <div className="flex space-x-4 mt-4">
                     <a
-                      href="/mees.exe"
+                      href="/Dervox_Monitor_Server.exe"
                       download
                       className="inline-flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
                     >
@@ -337,7 +343,7 @@ export default function Telecharger() {
                     <p className="text-gray-400 mt-2">  Déploiement automatique du script Dervox sur Debian, avec configuration réseau, firewall et services système.</p>
                     <div className="flex space-x-4 mt-4">
                     <a
-                      href="/mees.exe"
+                      href="/Dervox_Monitor_Server.exe"
                       download
                       className="inline-flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
                     >
@@ -383,7 +389,7 @@ export default function Telecharger() {
                     <span className="absolute -top-5 bg-blue-600 text-white px-3 py-1 rounded-lg">Bientot</span>
                     <img src="/images/system/azuers.png" alt="Azur" className="w-28 h-24 my-4" />
                     <h2 className="text-xl font-semibold text-purple-400">Microsoft Azure</h2>
-                    <p className="text-gray-400 mt-2">Le script est installé dans l’environnement Google Cloud pour lancer la supervision DMS.</p>
+                    <p className="text-gray-400 mt-2">Le script est installé dans l'environnement Google Cloud pour lancer la supervision DMS.</p>
                     <div className="flex space-x-4 mt-4">
                       <Button className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg">
                         <Download size={20} />
@@ -404,7 +410,7 @@ export default function Telecharger() {
                     <span className="absolute -top-5 bg-blue-600 text-white px-3 py-1 rounded-lg">Bientot</span>
                     <img src="/images/system/googlecloud.png" alt="google" className="w-28 h-24 my-4" />
                     <h2 className="text-xl font-semibold text-purple-400">Google cloud</h2>
-                    <p className="text-gray-400 mt-2">Le script DMS s’installe automatiquement sur les serveurs AWS pour activer la surveillance.</p>
+                    <p className="text-gray-400 mt-2">Le script DMS s'installe automatiquement sur les serveurs AWS pour activer la surveillance.</p>
                     <div className="flex space-x-4 mt-4">
                       <Button className="flex items-center space-x-2 bg-blue-500 text-white px-4 py-2 rounded-lg">
                         <Download size={20} />
