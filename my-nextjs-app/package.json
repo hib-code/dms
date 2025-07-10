@@ -12,7 +12,7 @@
     "@fontsource/inter": "^5.1.1",
     "@headlessui/react": "^2.2.0",
     "@radix-ui/react-toggle-group": "^1.1.2",
-    "@react-three/drei": "9.89.4",
+    "@react-three/drei": "9.74.15",
     "@react-three/fiber": "8.13.7",
     "axios": "^1.9.0",
     "caniuse-lite": "^1.0.30001717",
