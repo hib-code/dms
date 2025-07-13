@@ -327,7 +327,7 @@
                         Email
                     </h4>
                     <p class="text-base text-body-color dark:text-body-color-dark">
-                        contact@dms.com
+                      contact@dervox.com
                     </p>
                 </div>
                 
@@ -339,7 +339,7 @@
                         Téléphone
                     </h4>
                     <p class="text-base text-body-color dark:text-body-color-dark">
-                        +212 6 12 46 31 72
+                        +212 660696510
                     </p>
                 </div>
                 
@@ -351,7 +351,7 @@
                         Adresse
                     </h4>
                     <p class="text-base text-body-color dark:text-body-color-dark">
-                        Sidi slimane
+                        Casablanca, Morocco
                     </p>
                 </div>
             </div>
